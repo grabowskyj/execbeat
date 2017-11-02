@@ -118,10 +118,9 @@ func (e *Executor) runOneTime() error {
         if e.timeout != "" {
                 select {
                 case <-time.After(timeoutValue):
-                        processKillTimeStart := time.Now()
-                        cmd.Process.Kill()
-                        duration = getUsDuration(processKillTimeStart)
-                        
+                        duration = getUsDuration(now)
+			cmd.Process.Kill()
+                                                
                         logp.Err("Command execution has timed out after %v", timeoutStr)
                         io.WriteString(cmd.Stderr, "Command execution has timed out")
                         exitCode = 124
