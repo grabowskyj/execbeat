@@ -12,3 +12,5 @@ I just commited the modified files which should be placed to the:
 # How to build
  - Clone elastic/beats and christiangalsterer/execbeat into src/github.com directory
  - Modify GOPATH environment variable so that it contains the parent directory of src/ directory
+ - Overwrite the required files
+ - go build
